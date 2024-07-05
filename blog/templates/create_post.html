@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+    <form method="POST" action="" enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+        <fieldset class="form-group">
+            <legend class="border-bottom mb-4">{{ legend }}</legend>
+            <div class="form-group">
+                <div class="container">
+                {{ form.title.label(class="form-control-label") }}
+                {% if form.title.errors %}
+                    {{ form.title(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.title.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.title(class="form-control form-control-lg") }}
+                {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="container">
+                {{ form.content.label(class="form-control-label") }}
+                {% if form.content.errors %}
+                    {{ form.content(class="form-control form-control-lg is-invalid") }}
+                    <div class="invalid-feedback">
+                        {% for error in form.content.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.content(class="form-control form-control-lg") }}
+                {% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="container">
+
+                    {{ form.place.label(class="form-control-label")}}
+                    {{ form.place(class="form-control form-control-lg") }}
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            {{ form.long.label(class="form-control-label")}}
+                            {{ form.long(class="form-control form-control-lg") }}
+                        </div>
+                        <div class="col">
+                            {{ form.lat.label(class="form-control-label")}}
+                            {{ form.lat(class="form-control form-control-lg") }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="container">
+                {{ form.picture1.label() }}
+                {{ form.picture1(class="form-control-file") }}
+                {% if form.picture1.errors %}
+                    {% for error in form.picture1.errors %}
+                        <span class="text-danger">{{ error }}</span></br>
+                    {% endfor %}
+                {% endif %}
+
+                    <a>
+                        Delete
+                        {{ form.del_pic1() }}
+                    </a>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="container">
+                {{ form.picture2(class="form-control-file") }}
+                {% if form.picture2.errors %}
+                    {% for error in form.picture2.errors %}
+                        <span class="text-danger">{{ error }}</span></br>
+                    {% endfor %}
+                {% endif %}
+                <a>
+                    Delete
+                    {{ form.del_pic2() }}
+                </a>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="container">
+                {{ form.picture3(class="form-control-file") }}
+                {% if form.picture3.errors %}
+                    {% for error in form.picture3.errors %}
+                        <span class="text-danger">{{ error }}</span></br>
+                    {% endfor %}
+                {% endif %}
+                <a>
+                    Delete
+                    {{ form.del_pic3() }}
+                </a>
+                </div>
+            </div>
+        </fieldset>
+        <div class="form-group">
+            <div class="container">
+            {{ form.submit(class="btn btn-outline-info") }}
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock content %}
